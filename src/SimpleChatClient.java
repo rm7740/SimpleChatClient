@@ -22,8 +22,8 @@ public class SimpleChatClient {
 
     private void go() {
         JFrame frame = new JFrame("Ludicrously Simple Chat Client");
-        JPanel mainpanel = new JPanel();
-        incoming = new JTextArea(15, 50);
+        JPanel mainPanel = new JPanel();
+        incoming = new JTextArea(15, 30);
         incoming.setLineWrap(true);
         incoming.setWrapStyleWord(true);
         incoming.setEditable(false);
@@ -33,15 +33,15 @@ public class SimpleChatClient {
         outgoing = new JTextField(20);
         JButton sendButton = new JButton("Send");
         sendButton.addActionListener(new SendButtonListener());
-        mainpanel.add(qScroller);
-        mainpanel.add(outgoing);
-        mainpanel.add(sendButton);
+        mainPanel.add(qScroller);
+        mainPanel.add(outgoing);
+        mainPanel.add(sendButton);
         setUpNetworking();
- 
+
         Thread readerThread = new Thread(new IncomingReader());
         readerThread.start();
 
-        frame.getContentPane().add(BorderLayout.CENTER, mainpanel);
+        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         frame.setSize(400, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -53,7 +53,7 @@ public class SimpleChatClient {
             InputStreamReader streamReader = new InputStreamReader(sock.getInputStream());
             reader = new BufferedReader(streamReader);
             writer = new PrintWriter(sock.getOutputStream());
-            System.out.println("Networking stablished");
+            System.out.println("Networking established");
         } catch (IOException ex){
             ex.printStackTrace();
         }
