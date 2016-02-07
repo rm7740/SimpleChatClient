@@ -77,7 +77,7 @@ public class SimpleChatClient {
             String message;
             try{
                 while((message = reader.readLine()) != null){
-                    System.out.println("read" + message);
+                    System.out.println("Read " + message);
                     incoming.append(message + "\n");
                 }
             } catch (Exception ex){
