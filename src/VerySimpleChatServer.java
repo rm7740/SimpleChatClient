@@ -50,7 +50,7 @@ public class VerySimpleChatServer {
             String message;
             try{
                 while ((message = reader.readLine()) != null){
-                    System.out.println("read" + message);
+                    System.out.println("Read " + message);
                     tellEveryone(message);
                 }
             } catch (Exception ex){
