@@ -2,6 +2,7 @@ import org.omg.PortableInterceptor.INACTIVE;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -61,6 +62,16 @@ public class SimpleChatClient {
     }
 
     private class SendButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            try{
+                writer.println(outgoing.getText());
+                writer.flush();
+            } catch (Exception ex){
+                ex.printStackTrace();
+            }
+            outgoing.setText("");
+            outgoing.requestFocus();
+        }
     }
 
     private class IncomingReader implements Runnable {
