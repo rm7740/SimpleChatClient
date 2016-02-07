@@ -31,13 +31,13 @@ public class SimpleChatClient {
         qScroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         qScroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         outgoing = new JTextField(20);
-        JButton sendbutton = new JButton("Send");
-        sendbutton.addActionListener(new SendButtonListener());
+        JButton sendButton = new JButton("Send");
+        sendButton.addActionListener(new SendButtonListener());
         mainpanel.add(qScroller);
         mainpanel.add(outgoing);
-        mainpanel.add(sendbutton);
+        mainpanel.add(sendButton);
         setUpNetworking();
-
+ 
         Thread readerThread = new Thread(new IncomingReader());
         readerThread.start();
 
