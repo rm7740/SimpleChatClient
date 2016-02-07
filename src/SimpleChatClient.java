@@ -1,5 +1,3 @@
-import org.omg.PortableInterceptor.INACTIVE;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -43,7 +41,7 @@ public class SimpleChatClient {
         Thread readerThread = new Thread(new IncomingReader());
         readerThread.start();
 
-        frame.getContentPane().add(BorderLayout.CENTER, mainpanel):
+        frame.getContentPane().add(BorderLayout.CENTER, mainpanel);
         frame.setSize(400, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
